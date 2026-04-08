@@ -1,20 +1,22 @@
-# Exemplos e Referências
+# 📂 Exemplos de Uso - FinAI
 
-Esta pasta contém exemplos de implementação para cada etapa do desafio.
+Esta pasta contém demonstrações de como o assistente processa informações financeiras e as transforma em dados estruturados.
 
-## Vídeos de Referência
+## 🤖 Casos de Uso (Input vs Output)
 
-> 🎬 Em breve serão disponibilizados vídeos demonstrando a implementação completa de cada etapa, com foco no raciocínio por trás de cada decisão.
+O FinAI utiliza Engenharia de Prompt para extrair entidades de frases informais. Abaixo estão exemplos de como a IA interpreta diferentes situações:
 
-| Etapa | Descrição | Link |
-|-------|-----------|------|
-| Documentação | Como definir o caso de uso e arquitetura | [em breve] |
-| Base de Conhecimento | Como usar os dados mockados | [em breve] |
-| Prompts | Como criar prompts eficazes | [em breve] |
-| Aplicação | Como criar o chatbot funcional | [em breve] |
-| Métricas | Como avaliar seu agente | [em breve] |
-| Pitch | Como apresentar sua solução | [em breve] |
+### 1. Registro de Despesa
+**Entrada do Usuário:** > "Paguei 45 reais no almoço de hoje"
 
-## Exemplo de Implementação Simples
-
-Confira na pasta `src/` um exemplo básico de estrutura de aplicação usando Streamlit.
+**Processamento Interno (JSON):**
+```json
+{
+  "tipo_acao": "registro",
+  "data": "2026-04-08",
+  "descricao": "Almoço",
+  "categoria": "alimentacao",
+  "valor": 45.0,
+  "tipo": "saida",
+  "mensagem": "Registro de alimentação feito com sucesso!"
+}
