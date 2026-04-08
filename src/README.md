@@ -1,31 +1,17 @@
-# Código da Aplicação
+# 🏦 FinAI - Inteligência Artificial para Gestão Financeira
 
-Esta pasta contém o código do seu agente financeiro.
+Projeto desenvolvido para o Bootcamp DIO - BIA do Futuro.
 
-## Estrutura Sugerida
+## 🎯 Objetivo
+Automatizar o registro de despesas e receitas através de processamento de linguagem natural (NLP), integrando a API do Google Gemini com uma base de dados estruturada em Python.
 
-```
-src/
-├── app.py              # Aplicação principal (Streamlit/Gradio)
-├── agente.py           # Lógica do agente
-├── config.py           # Configurações (API keys, etc.)
-└── requirements.txt    # Dependências
-```
+## 🛠️ Tecnologias Utilizadas
+- **Python**: Lógica e manipulação de dados.
+- **Pandas**: Estruturação de transações em CSV.
+- **Streamlit**: Interface de usuário dinâmica.
+- **Google Gemini API**: Inteligência generativa para extração de entidades JSON.
 
-## Exemplo de requirements.txt
-
-```
-streamlit
-openai
-python-dotenv
-```
-
-## Como Rodar
-
-```bash
-# Instalar dependências
-pip install -r requirements.txt
-
-# Rodar a aplicação
-streamlit run app.py
-```
+## 📂 Estrutura do Projeto
+- `/src`: Módulos de processamento e lógica do agente.
+- `/data`: Armazenamento dos arquivos CSV (ignorado no Git).
+- `app.py`: Ponto de entrada da aplicação.
