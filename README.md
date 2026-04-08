@@ -1,21 +1,20 @@
-# 💰 FinAI - Assistente Financeiro Conversacional
+# 💰 FinAI - Assistente de Gestão Financeira com IA
 
-## 📌 Sobre o Projeto
-O FinAI é um assistente financeiro desenvolvido em Python que permite registrar e analisar receitas e despesas de forma conversacional.
+O FinAI é um agente inteligente desenvolvido para simplificar o registro de transações financeiras usando Linguagem Natural. 
 
 ## 🚀 Funcionalidades
-- Registro de receitas e despesas
-- Análise financeira automática
-- Cálculo de saldo
-- Interface interativa com Streamlit
+- **Processamento de Linguagem Natural**: Transforma frases como "Gastei 50 reais com pizza" em registros estruturados.
+- **Base de Dados Dinâmica**: Armazenamento automático em CSV via Pandas.
+- **Categorização Inteligente**: Baseada em regras de negócio rígidas.
 
-## 🧠 Tecnologias
-- Python
-- Streamlit
-- Pandas
+## 🛠️ Tecnologias
+- **Python 3.10+**
+- **Streamlit** (Interface)
+- **Google Gemini API** (Cérebro do Agente)
+- **Pandas** (Tratamento de dados)
 
-## ▶️ Como Executar
-
-```bash
-pip install -r requirements.txt
-streamlit run app.py
+## 📋 Como rodar
+1. Clone o repositório.
+2. Crie um arquivo `.streamlit/secrets.toml` com sua `GOOGLE_API_KEY`.
+3. Instale as dependências: `pip install -r requirements.txt`.
+4. Execute: `streamlit run app.py`.
