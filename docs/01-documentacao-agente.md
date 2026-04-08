@@ -1,81 +1,84 @@
-# Documentação do Agente
-
-## Caso de Uso
-
-### Problema
-> Qual problema financeiro seu agente resolve?
-
-[Sua descrição aqui]
-
-### Solução
-> Como o agente resolve esse problema de forma proativa?
-
-[Sua descrição aqui]
-
-### Público-Alvo
-> Quem vai usar esse agente?
-
-[Sua descrição aqui]
+# 📘 Documentação do Agente
 
 ---
 
-## Persona e Tom de Voz
+## 🧠 Caso de Uso
+
+### 📌 Problema
+Muitas pessoas não possuem controle claro sobre suas finanças pessoais, registrando gastos de forma desorganizada ou nem registrando.  
+Além disso, interpretar valores e categorizar despesas manualmente é trabalhoso e sujeito a erros.
+
+---
+
+### 🚀 Solução
+O FinAI resolve esse problema utilizando Inteligência Artificial para:
+
+- Interpretar mensagens em linguagem natural
+- Extrair automaticamente:
+  - valor
+  - descrição
+  - categoria
+  - tipo (entrada/saída)
+- Estruturar os dados em formato JSON
+- Armazenar automaticamente em um arquivo CSV
+
+O agente atua de forma **proativa**, convertendo conversas em dados financeiros estruturados, sem necessidade de preenchimento manual.
+
+---
+
+### 🎯 Público-Alvo
+- Pessoas que desejam organizar suas finanças pessoais
+- Usuários iniciantes em controle financeiro
+- Profissionais que querem integrar dados com Power BI ou Excel
+- Usuários que preferem interação conversacional ao invés de planilhas
+
+---
+
+## 🤖 Persona e Tom de Voz
 
 ### Nome do Agente
-[Nome escolhido]
-
-### Personalidade
-> Como o agente se comporta? (ex: consultivo, direto, educativo)
-
-[Sua descrição aqui]
-
-### Tom de Comunicação
-> Formal, informal, técnico, acessível?
-
-[Sua descrição aqui]
-
-### Exemplos de Linguagem
-- Saudação: [ex: "Olá! Como posso ajudar com suas finanças hoje?"]
-- Confirmação: [ex: "Entendi! Deixa eu verificar isso para você."]
-- Erro/Limitação: [ex: "Não tenho essa informação no momento, mas posso ajudar com..."]
+**FinAI**
 
 ---
 
-## Arquitetura
+### 🧑‍💼 Personalidade
+- Assistente financeiro inteligente
+- Objetivo e eficiente
+- Educativo e orientado a dados
 
-### Diagrama
+---
+
+### 💬 Tom de Comunicação
+- Acessível
+- Levemente informal
+- Claro e direto
+
+---
+
+### 🗣️ Exemplos de Linguagem
+
+- **Saudação:**  
+  "Olá! Como posso te ajudar com suas finanças hoje?"
+
+- **Confirmação:**  
+  "Registro realizado com sucesso!"
+
+- **Erro/Limitação:**  
+  "Não consegui entender completamente. Pode reformular a frase?"
+
+---
+
+## 🏗️ Arquitetura
+
+### 🔁 Diagrama
 
 ```mermaid
 flowchart TD
-    A[Cliente] -->|Mensagem| B[Interface]
-    B --> C[LLM]
-    C --> D[Base de Conhecimento]
+    A[Usuário] -->|Mensagem| B[Streamlit]
+    B --> C[Agente FinAI]
+    C --> D[LLM Gemini 1.5]
     D --> C
-    C --> E[Validação]
-    E --> F[Resposta]
-```
-
-### Componentes
-
-| Componente | Descrição |
-|------------|-----------|
-| Interface | [ex: Chatbot em Streamlit] |
-| LLM | [ex: GPT-4 via API] |
-| Base de Conhecimento | [ex: JSON/CSV com dados do cliente] |
-| Validação | [ex: Checagem de alucinações] |
-
----
-
-## Segurança e Anti-Alucinação
-
-### Estratégias Adotadas
-
-- [ ] [ex: Agente só responde com base nos dados fornecidos]
-- [ ] [ex: Respostas incluem fonte da informação]
-- [ ] [ex: Quando não sabe, admite e redireciona]
-- [ ] [ex: Não faz recomendações de investimento sem perfil do cliente]
-
-### Limitações Declaradas
-> O que o agente NÃO faz?
-
-[Liste aqui as limitações explícitas do agente]
+    C --> E[Validação JSON]
+    E --> F[DataFrame Pandas]
+    F --> G[Arquivo CSV]
+    G --> H[Resposta ao Usuário]
