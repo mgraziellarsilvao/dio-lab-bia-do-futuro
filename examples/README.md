@@ -1,15 +1,15 @@
-# 📂 Exemplos de Uso - FinAI
+# 📂 Exemplos de Uso e Demonstração - FinAI
 
-Esta pasta contém demonstrações de como o assistente processa informações financeiras e as transforma em dados estruturados.
+Este documento apresenta como o assistente **FinAI** interpreta mensagens em linguagem natural e as converte em dados estruturados para controle financeiro.
 
-## 🤖 Casos de Uso (Input vs Output)
+## 🤖 Casos de Uso (Extração de Dados)
 
-O FinAI utiliza Engenharia de Prompt para extrair entidades de frases informais. Abaixo estão exemplos de como a IA interpreta diferentes situações:
+O FinAI utiliza Inteligência Artificial para identificar o valor, a descrição e a categoria correta, mesmo em frases informais.
 
-### 1. Registro de Despesa
-**Entrada do Usuário:** > "Paguei 45 reais no almoço de hoje"
+### 1. Registro de Despesa (Saída)
+**Usuário diz:** > *"Paguei 45 reais no almoço de hoje"*
 
-**Processamento Interno (JSON):**
+**Interpretação da IA (JSON):**
 ```json
 {
   "tipo_acao": "registro",
@@ -18,5 +18,5 @@ O FinAI utiliza Engenharia de Prompt para extrair entidades de frases informais.
   "categoria": "alimentacao",
   "valor": 45.0,
   "tipo": "saida",
-  "mensagem": "Registro de alimentação feito com sucesso!"
+  "mensagem": "Registro de alimentação feito com sucesso! Bom apetite."
 }
