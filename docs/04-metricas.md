@@ -1,71 +1,103 @@
-# Avaliação e Métricas
-
-## Como Avaliar seu Agente
-
-A avaliação pode ser feita de duas formas complementares:
-
-1. **Testes estruturados:** Você define perguntas e respostas esperadas;
-2. **Feedback real:** Pessoas testam o agente e dão notas.
+# 📊 Avaliação e Métricas
 
 ---
 
-## Métricas de Qualidade
+## 🧪 Como Avaliar o Agente
 
-| Métrica | O que avalia | Exemplo de teste |
-|---------|--------------|------------------|
-| **Assertividade** | O agente respondeu o que foi perguntado? | Perguntar o saldo e receber o valor correto |
-| **Segurança** | O agente evitou inventar informações? | Perguntar algo fora do contexto e ele admitir que não sabe |
-| **Coerência** | A resposta faz sentido para o perfil do cliente? | Sugerir investimento conservador para cliente conservador |
+A avaliação do FinAI foi realizada através de testes estruturados simulando interações reais com o usuário.
 
-> [!TIP]
-> Peça para 3-5 pessoas (amigos, família, colegas) testarem seu agente e avaliarem cada métrica com notas de 1 a 5. Isso torna suas métricas mais confiáveis! Caso use os arquivos da pasta `data`, lembre-se de contextualizar os participantes sobre o **cliente fictício** representado nesses dados.
+O foco foi validar:
+
+- Extração correta de dados
+- Estrutura JSON consistente
+- Respostas fora de escopo
+- Comportamento em cenários ambíguos
 
 ---
 
-## Exemplos de Cenários de Teste
+## 📈 Métricas de Qualidade
 
-Crie testes simples para validar seu agente:
+| Métrica | O que avalia | Aplicação no FinAI |
+|--------|-------------|-------------------|
+| **Assertividade** | Capacidade de extrair corretamente os dados | Identificação de valor, categoria e tipo |
+| **Segurança** | Evita inventar informações | Uso de JSON estruturado e categorias fixas |
+| **Coerência** | Respostas fazem sentido no contexto financeiro | Classificação correta de entrada/saída |
 
-### Teste 1: Consulta de gastos
-- **Pergunta:** "Quanto gastei com alimentação?"
-- **Resposta esperada:** Valor baseado no `transacoes.csv`
-- **Resultado:** [ ] Correto  [ ] Incorreto
+---
 
-### Teste 2: Recomendação de produto
-- **Pergunta:** "Qual investimento você recomenda para mim?"
-- **Resposta esperada:** Produto compatível com o perfil do cliente
-- **Resultado:** [ ] Correto  [ ] Incorreto
+## 🧪 Cenários de Teste
 
-### Teste 3: Pergunta fora do escopo
+### ✅ Teste 1: Registro de despesa
+
+- **Pergunta:** "Paguei 50 reais no mercado"
+- **Resultado esperado:** Registro com categoria `alimentacao`
+- **Resultado:** [x] Correto  [ ] Incorreto
+
+---
+
+### ✅ Teste 2: Registro de receita
+
+- **Pergunta:** "Recebi 2000 de salário"
+- **Resultado esperado:** Registro com tipo `entrada`
+- **Resultado:** [x] Correto  [ ] Incorreto
+
+---
+
+### ✅ Teste 3: Pergunta fora do escopo
+
 - **Pergunta:** "Qual a previsão do tempo?"
-- **Resposta esperada:** Agente informa que só trata de finanças
-- **Resultado:** [ ] Correto  [ ] Incorreto
-
-### Teste 4: Informação inexistente
-- **Pergunta:** "Quanto rende o produto XYZ?"
-- **Resposta esperada:** Agente admite não ter essa informação
-- **Resultado:** [ ] Correto  [ ] Incorreto
+- **Resultado esperado:** Resposta informando limitação do agente
+- **Resultado:** [x] Correto  [ ] Incorreto
 
 ---
 
-## Resultados
+### ⚠️ Teste 4: Frase ambígua
 
-Após os testes, registre suas conclusões:
-
-**O que funcionou bem:**
-- [Liste aqui]
-
-**O que pode melhorar:**
-- [Liste aqui]
+- **Pergunta:** "Gastei um pouco ontem"
+- **Resultado esperado:** Dificuldade de interpretação ou erro controlado
+- **Resultado:** [ ] Correto  [x] Incorreto
 
 ---
 
-## Métricas Avançadas (Opcional)
+## 📊 Resultados
 
-Para quem quer explorar mais, algumas métricas técnicas de observabilidade também podem fazer parte da sua solução, como:
+### ✅ O que funcionou bem
 
-- Latência e tempo de resposta;
-- Consumo de tokens e custos;
-- Logs e taxa de erros.
+- Extração de valores numéricos com alta precisão  
+- Classificação correta entre entrada e saída  
+- Estrutura JSON consistente  
+- Persistência automática no CSV  
+- Respostas fora do escopo bem controladas  
 
-Ferramentas especializadas em LLMs, como [LangWatch](https://langwatch.ai/) e [LangFuse](https://langfuse.com/), são exemplos que podem ajudar nesse monitoramento. Entretanto, fique à vontade para usar qualquer outra que você já conheça!
+---
+
+### ⚠️ O que pode melhorar
+
+- Interpretação de frases vagas ou incompletas  
+- Tratamento de múltiplas transações em uma única frase  
+- Melhor entendimento de contexto temporal (ex: "semana passada")  
+- Feedback mais detalhado ao usuário em caso de erro  
+
+---
+
+## 🚀 Métricas Avançadas
+
+Mesmo não utilizando ferramentas externas de observabilidade, o projeto apresenta:
+
+- Baixa latência (respostas rápidas com Gemini Flash)
+- Baixo custo computacional (uso eficiente de tokens)
+- Tratamento de erros com try/except
+
+---
+
+## 💡 Conclusão
+
+O FinAI apresentou bom desempenho nos testes principais, com destaque para:
+
+- Confiabilidade na estrutura dos dados
+- Baixo nível de alucinação
+- Simplicidade e eficiência na arquitetura
+
+---
+
+Projeto validado com foco em robustez e evolução contínua 🚀
